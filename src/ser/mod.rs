@@ -213,9 +213,7 @@ where
         name: &'static str,
         value: &T,
     ) -> Result<Self::Ok> {
-        Err(Error::UnsupportedOperation {
-            operation: "serialize_newtype_struct".to_string(),
-        })
+        self.write_wrapped(name, value)
     }
 
     fn serialize_newtype_variant<T: ?Sized + Serialize>(
